@@ -17,3 +17,24 @@ Serve the request regarding salary from frontend.
 - [Redis](https://redis.io/ 'Redis') 
 - [Maven](https://maven.apache.org/ 'maven')
 - [Migrate](https://github.com/golang-migrate/migrate 'migrate')
+
+MAVEN cmds:
+
+```shell
+mvn dependency:copy-dependencies 
+```
+
+```shell
+mvn test 
+```
+
+```shell
+mvn package
+```
+
+```shell
+java -jar target/salary-0.1.0-RELEASE.jar
+```
+
+
+
