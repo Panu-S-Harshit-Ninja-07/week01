@@ -18,7 +18,7 @@ Serve the request regarding salary from frontend.
 - [Maven](https://maven.apache.org/ 'maven')
 - [Migrate](https://github.com/golang-migrate/migrate 'migrate')
 
-MAVEN cmds:
+## MAVEN cmds:
 
 ```shell
 mvn dependency:copy-dependencies 
@@ -35,6 +35,3 @@ mvn package
 ```shell
 java -jar target/salary-0.1.0-RELEASE.jar
 ```
-
-
-

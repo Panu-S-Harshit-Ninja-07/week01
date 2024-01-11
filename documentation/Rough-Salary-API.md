@@ -7,43 +7,74 @@ edit test/main/resources/application.yml
 edit migration.json
 
 
-MAVEN DEPENDIES
-mvn dependency:copy-dependencies
+
 
 java -jar target/salary-0.1.0-RELEASE.jar
 
 
+## Salary API 
+# Prequisites  
+  # Installed required s/w 
+
 sudo apt update 
-sudo apt install openjdk-17-jre 
-sudo apt install maven
-sudo apt install redis-server
- sudo apt install jq
- sudo apt install golang
+sudo apt install openjdk-17-jre-headless -y
+sudo apt install maven -y
 
-install scylladb = https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/install-on-linux.html
+  # install scylladb
+https://opensource.docs.scylladb.com/stable/getting-started/install-scylla/install-on-linux.html
 scylladb : seeds ,rpc, listen addreess
-sudo scylla_setup
+sudo scylla_setup'
 
-create keyspace
+  # Redis
+sudo apt install redis-server
+
+
+
+#### Now to Setup up API
+
+- to check dependencies required for mvn 
+  - https://medium.com/@mlvandijk/keeping-dependencies-up-to-date-with-maven-be8f7fb6441e#:~:text=Using%20Maven%20to%20display%20dependency%20updates&text=Run%20the%20following%20command%20in%20your%20terminal%3A%20.%2Fmvnw%20versions,newer%20versions%20have%20been%20found.&text=As%20you%20can%20see%2C%20there,be%20updated%20in%20this%20project.
+    ```shell
+    mvn dependency:copy-dependencies 
+    ```
+
+  - 
+- to run MAKE
+    ```shell
+     sudo apt install make -y 
+    ```
+
+sudo apt install jq -y 
+sudo apt install golang -y
+  # migrate
+curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
+sudo apt update
+sudo apt install migrate -y
+
+
+
+![Alt text](image.png)
+
+##### create keyspace
 cqlsh 
 
 CREATE KEYSPACE IF NOT EXISTS employee_db
   WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
   
 git clone https://github.com/OT-MICROSERVICES/salary-api.git
-
+sudo apt install make  -y
 make build 
 make fmt
 make run-migrations
   
-install migrate = curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
-sudo apt install migrate
+#### install migrate
+  
+test $(go list ./... | grep -v docs | grep -v model | grep -v main.go) -coverprofile cover.out
+go tool cover -html=cover.out
 
-  
-##################
- sudo apt install jq
- sudo apt install golang
-  
+export GIN_MODE=release
+For debugging set gin mode to development
+./employee-api
  git clone https://github.com/OT-MICROSERVICES/employee-api.git
  
  change config.yaml ,migration.json
