@@ -57,11 +57,13 @@ sudo apt install redis-server
   ![make run-migrations](image-1.png)
 
 5. install jq and migrate
-  JQ
+JQ
+
   ```shell
   sudo apt install jq -y 
     ```
-  Migrate
+Migrate
+  
   ```shell
   curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
   sudo apt update
