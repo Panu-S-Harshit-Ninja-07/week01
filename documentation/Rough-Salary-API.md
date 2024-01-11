@@ -32,28 +32,41 @@ sudo apt install redis-server
 
 #### Now to Setup up API
 
-- to check dependencies required for mvn 
+1. to run MAKE
+    ```shell
+     sudo apt install make -y 
+    ```
+ 
+2. ```shell
+    make build
+    ```
+  [Error -01]
+
+  ![make build](image.png)
+
+3. to check dependencies required for mvn 
   - https://medium.com/@mlvandijk/keeping-dependencies-up-to-date-with-maven-be8f7fb6441e#:~:text=Using%20Maven%20to%20display%20dependency%20updates&text=Run%20the%20following%20command%20in%20your%20terminal%3A%20.%2Fmvnw%20versions,newer%20versions%20have%20been%20found.&text=As%20you%20can%20see%2C%20there,be%20updated%20in%20this%20project.
     ```shell
     mvn dependency:copy-dependencies 
     ```
 
-  - 
-- to run MAKE
-    ```shell
-     sudo apt install make -y 
+4. ```shell
+    make run-migrations
     ```
+  [ERROR- 02]
+  ![make run-migrations](image-1.png)
 
-sudo apt install jq -y 
-sudo apt install golang -y
-  # migrate
-curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
-sudo apt update
-sudo apt install migrate -y
-
-
-
-![Alt text](image.png)
+5. install jq and migrate
+  JQ
+  ```shell
+  sudo apt install jq -y 
+    ```
+  Migrate
+  ```shell
+  curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
+  sudo apt update
+  sudo apt install migrate -y  
+  ```
 
 ##### create keyspace
 cqlsh 
