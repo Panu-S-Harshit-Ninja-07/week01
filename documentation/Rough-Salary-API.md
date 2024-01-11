@@ -57,16 +57,16 @@ sudo apt install redis-server
   ![make run-migrations](image-1.png)
 
 5. install jq
-  ```shell
-  sudo apt install jq -y 
-    ```
+    ```shell
+    sudo apt install jq -y 
+      ```
 
 6. install Migrate
-  ```shell
-  curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
-  sudo apt update
-  sudo apt install migrate -y  
-  ```
+    ```shell
+      curl -s https://packagecloud.io/install/repositories/golang-migrate/migrate/script.deb.sh | sudo bash
+      sudo apt update
+      sudo apt install migrate -y  
+    ```
 
 ##### create keyspace
 cqlsh 
